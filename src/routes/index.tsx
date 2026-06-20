@@ -1,8 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import cardscanIconUrl from "@/assets/cardscanner-icon.png";
 import kfarmLogoUrl from "@/assets/kfarmai-logo.png";
 import dgiLinkLogoUrl from "@/assets/dgi-link-logo.png";
+import { LangSwitch } from "@/components/lang-switch";
+import { detectLang, type Lang } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -48,8 +50,6 @@ export const Route = createFileRoute("/")({
 /* =========================
    i18n
    ========================= */
-type Lang = "ko" | "en" | "ja";
-
 const CARDSCAN_URL =
   "https://play.google.com/store/apps/details?id=com.ssmshsoil.bizcardscanner";
 const KFARM_URL = "https://kfarmai.com";
@@ -334,16 +334,6 @@ const T = {
     },
   },
 } as const;
-
-function detectLang(): Lang {
-  if (typeof window === "undefined") return "ko";
-  const stored = window.localStorage.getItem("dgi-lang") as Lang | null;
-  if (stored === "ko" || stored === "en" || stored === "ja") return stored;
-  const nav = navigator.language?.toLowerCase() ?? "";
-  if (nav.startsWith("ja")) return "ja";
-  if (nav.startsWith("ko")) return "ko";
-  return "en";
-}
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -638,8 +628,8 @@ function Index() {
                 <div>
                   <div className="font-semibold text-[color:var(--navy-deep)]">Legal</div>
                   <ul className="mt-3 space-y-2 text-muted-foreground">
-                    <li><a className="hover:text-[color:var(--navy)]" href="#">{t.footer.privacy}</a></li>
-                    <li><a className="hover:text-[color:var(--navy)]" href="#">{t.footer.terms}</a></li>
+                    <li><Link className="hover:text-[color:var(--navy)]" to="/privacy">{t.footer.privacy}</Link></li>
+                    <li><Link className="hover:text-[color:var(--navy)]" to="/terms">{t.footer.terms}</Link></li>
                   </ul>
                 </div>
                 <div>
@@ -708,27 +698,6 @@ function LogoMark() {
         <circle cx="12" cy="12" r="1.4" fill="#ffffff" />
       </svg>
     </span>
-  );
-}
-
-function LangSwitch({ lang, onChange }: { lang: Lang; onChange: (l: Lang) => void }) {
-  const opts: Lang[] = ["ko", "en", "ja"];
-  return (
-    <div role="tablist" aria-label="Language" className="flex items-center rounded-full border border-border bg-white p-0.5 text-xs">
-      {opts.map((o) => (
-        <button
-          key={o}
-          role="tab"
-          aria-selected={lang === o}
-          onClick={() => onChange(o)}
-          className={`min-w-[2rem] rounded-full px-2.5 py-1 font-semibold uppercase tracking-wider transition-colors ${
-            lang === o ? "bg-[color:var(--navy)] text-white" : "text-muted-foreground hover:text-[color:var(--navy)]"
-          }`}
-        >
-          {o}
-        </button>
-      ))}
-    </div>
   );
 }
 
