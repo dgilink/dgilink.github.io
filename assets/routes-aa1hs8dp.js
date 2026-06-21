@@ -1,4 +1,4 @@
-import{n as e,r as t,t as n}from"./index-CYlXlvuw.js";var r=t(e()),i=`/assets/cardscanner-icon-C3sTdYKm.png`,a=`/assets/kfarmai-logo-CVNbwX6B.png`,o=`/assets/dgi-link-logo-CoHuWUN7.png`,s=`/assets/dgi-link-icon-DVr5c_3O.png`,c=n(),l=`https://play.google.com/store/apps/details?id=com.ssmshsoil.bizcardscanner`,u=`https://kfarmai.com`,d={ko:{nav:{home:`Home`,services:`Services`,about:`About`,contact:`Contact`},hero:{eyebrow:`Data · Green · Intelligence`,title:[`흩어진 것을
+import{n as e,r as t,t as n}from"./index-Dzh0O7_J.js";var r=t(e()),i=`/assets/cardscanner-icon-Bwbq2dtH.png`,a=`/assets/kfarmai-logo-CVNbwX6B.png`,o=`/assets/dgi-link-logo-CoHuWUN7.png`,s=`/assets/dgi-link-icon-DVr5c_3O.png`,c=n(),l=`https://play.google.com/store/apps/details?id=com.ssmshsoil.bizcardscanner`,u=`https://kfarmai.com`,d={ko:{nav:{home:`Home`,services:`Services`,about:`About`,contact:`Contact`},hero:{eyebrow:`Data · Green · Intelligence`,title:[`흩어진 것을
 `,`연결`,`합니다.`],desc:`명함은 지갑에, 식물 정보는 블로그에 흩어집니다.
 찍으면 AI가 연결합니다.`,ctaPrimary:`서비스 살펴보기`,ctaSecondary:`브랜드 스토리`},services:{eyebrow:`현재 운영 서비스`,title:`두 개의 문제를
 해결하고 있습니다`,desc:`명함 한 장, 작물 사진 한 장.
